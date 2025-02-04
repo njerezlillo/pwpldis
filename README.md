@@ -2,19 +2,23 @@
 # pwpldis Package
 
 <!-- badges: start -->
-![Visits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fusuario%2Frepositorio&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Visitas&edge_flat=false)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
-![Functions](https://badgen.net/badge/Functions/13/gray)
-![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange)
-![Construction](https://img.shields.io/badge/Construction-50%50-lightblue)
 [![R-CMD-check](https://github.com/njerezlillo/pwpldis/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/njerezlillo/pwpldis/actions/workflows/R-CMD-check.yaml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+![visits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fusuario%2Frepositorio&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=visits&edge_flat=false)
+![functions](https://badgen.net/badge/functions/13/lightblue)
+![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange)
 <!-- badges: end -->
 
-The goal of pwpldis is to obtain ...
+This package provides a set of tools for fitting the piecewise discrete power-law model, a flexible statistical framework for modeling data that follows a power-law behavior in different segments. It includes:
+
+- Maximum Likelihood Estimation: Methods to estimate model parameters, including breakpoints and power-law exponents.
+- Bootstrap Bias Correction: A resampling procedure to correct estimation bias and quantify uncertainty.
+
+The package is particularly useful for analyzing datasets where the power-law behavior changes at specific points, making it applicable to fields such as complex networks, empirical distributions, and heavy-tailed phenomena.
 
 ## Installation
 
-You can install the development version of pwpldis from [GitHub](https://github.com/) with:
+You can install the package using:
 
 ``` r
 # install.packages("devtools")
@@ -37,17 +41,22 @@ library(pwpldis)
 
 ## Citation
 
-To cite `rcens` in publications use:
+To cite `pwpldis` package in publications, please use the following format:
 
-Saavedra D, Ramos PL (2024). *rcens: Generate Sample Censoring*. R package version 0.1.0, [https://github.com/dlsaavedra/rcens](https://github.com/dlsaavedra/rcens).
+Jerez-Lillo N (2025). *pwpldis: Piecewise Discrete Power-Law Model*. R package version 1.0.0, [https://github.com/njerezlillo/pwpldis](https://github.com/njerezlillo/pwpldis).
 
-A BibTeX entry for LaTeX users is:
+For LaTeX users, the corresponding BibTeX entry is:
 
 ```bibtex
 @Manual{
-  title = {rcens: Generate Sample Censoring},
-  author = {Daniel Saavedra and Pedro L Ramos},
-  year = {2024},
-  note = {R package version 0.1.1},
-  url = {https://github.com/dlsaavedra/rcens},
+  title = {pwpldis: Piecewise Discrete Power-Law Model},
+  author = {Nixon Jerez-Lillo},
+  year = {2025},
+  note = {R package version 1.0.0},
+  url = {https://github.com/njerezlillo/pwpldis},
 }
+```
+
+## Reference
+
+Jerez-Lillo N, Rodrigues F, Ferreira P, Ramos P. Beyond the Power Law: Estimation, Goodness-of-Fit, and a Semiparametric Extension in Complex Networks.
