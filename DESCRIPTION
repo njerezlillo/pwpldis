@@ -1,0 +1,22 @@
+Package: pwpldis
+Title: Discrete piecewise power-law model
+Version: 1.0.0
+Authors@R: 
+    person("Nixon", "Jerez Lillo", , "njerezlillo@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-8750-969"))
+Description: This package provides tools for fitting the piecewise discrete 
+             power-law model. It includes maximum likelihood estimation methods
+             and a bootstrapping procedure to correct the bias of the estimators.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Imports:
+  VGAM,
+  stats,
+  utils,
+  maxLik,
+  fastmatch,
+  doSNOW,
+  foreach,
+  parallel
