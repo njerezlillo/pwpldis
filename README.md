@@ -4,9 +4,8 @@
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/njerezlillo/pwpldis/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/njerezlillo/pwpldis/actions/workflows/R-CMD-check.yaml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
-![visits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fusuario%2Frepositorio&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=visits&edge_flat=false)
-![functions](https://badgen.net/badge/functions/13/lightblue)
-![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange)
+![Functions](https://img.shields.io/badge/Functions-13-lightblue)
+![Lifecycle: experimental](https://img.shields.io/badge/Lifecycle-Experimental-orange)
 <!-- badges: end -->
 
 This package provides a set of tools for fitting the piecewise discrete power-law model, a flexible statistical framework for modeling data that follows a power-law behavior in different segments. It includes:
@@ -56,7 +55,3 @@ For LaTeX users, the corresponding BibTeX entry is:
   url = {https://github.com/njerezlillo/pwpldis},
 }
 ```
-
-## Reference
-
-Jerez-Lillo N, Rodrigues F, Ferreira P, Ramos P. Beyond the Power Law: Estimation, Goodness-of-Fit, and a Semiparametric Extension in Complex Networks.
