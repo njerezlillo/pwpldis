@@ -20,3 +20,5 @@ Imports:
   doSNOW,
   foreach,
   parallel
+URL: https://github.com/njerezlillo/pwpldis
+BugReports: https://github.com/njerezlillo/pwpldis/issues
