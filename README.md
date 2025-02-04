@@ -1,13 +1,12 @@
 
-# pwpldis
+# pwpldis Package
 
 <!-- badges: start -->
-![Visitas](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fusuario%2Frepositorio&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Visitas&edge_flat=false)
+![Visits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fusuario%2Frepositorio&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Visitas&edge_flat=false)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
-![Functions](https://badgen.net/badge/Items/325/gray)
-![Cool](https://img.shields.io/badge/%F0%9F%91%93-awesome-purple?style=flat-square)
+![Functions](https://badgen.net/badge/Functions/13/gray)
 ![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange)
-![Construction](https://img.shields.io/badge/Construcción-50%25-lightblue)
+![Construction](https://img.shields.io/badge/Construction-50%50-lightblue)
 [![R-CMD-check](https://github.com/njerezlillo/pwpldis/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/njerezlillo/pwpldis/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
