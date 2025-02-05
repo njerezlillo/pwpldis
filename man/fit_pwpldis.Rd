@@ -20,8 +20,7 @@ fit_pwpldis(
 
 \item{breakpoint}{A numeric vector specifying fixed change points.}
 
-\item{nbreak}{An integer specifying the total number of change points in the
-model. This includes any change points specified in the \code{breakpoint} argument.}
+\item{nbreak}{An integer specifying the number of change points in the model.}
 
 \item{exclude_int}{A numeric vector of two values defining an interval in which
 estimated change points should be excluded (e.g., \code{exclude_int = c(10, Inf)}
@@ -30,7 +29,7 @@ excludes change points after \code{time = 10}).}
 \item{min_pt_tail}{An integer specifying the minimum number of observations
 required to estimate the last parameter.}
 
-\item{max_set}{An integer specifying the maximum number of possible breakpoint
+\item{max_set}{An integer specifying the maximum number of possible change points
 combinations to consider.}
 
 \item{trace}{A logical value indicating whether to display the optimization
@@ -48,25 +47,23 @@ A data frame with the following columns:
 \item{AIC}{The Akaike Information Criterion for the model.}
 \item{BIC}{The Bayesian Information Criterion for the model.}
 }
-The result also contains two additional attributes:
-\describe{
-\item{brk}{A vector of the estimated change points.}
-\item{lam}{A vector of the estimated scaling parameters.}
-}
 }
 \description{
 This function fits a piecewise power-law distribution to datasets. The user
-can specify all change points, some change points, or allow the function to
-estimate them. It also provides the option to exclude intervals and specify
+can specify all change points or allow the function to estimate them.
+It also provides the option to exclude intervals and specify
 the minimum number of observations required to estimate the last parameter.
 }
 \details{
 If the user specifies change points, the function checks their validity and removes
-change points after the last event time or before the first event time. If \code{nbreak} is
-set to 0, the function estimates the number of change points based on the number of
-unique observations. The \code{exclude_int} argument allows excluding change points that are
-too close to the tail. The \code{min_pt_tail} argument helps in estimating a more robust
-scaling parameter for the tail by requiring a minimum number of observations.
+change points after the maximum or before the minimum. The \code{exclude_int} argument
+allows excluding change points that are too close to the tail. The \code{min_pt_tail}
+argument helps in estimating a more robust scaling parameter for the tail by
+requiring a minimum number of observations.
+
+This function was inspired by the implementation of the \code{PWEXP}
+package in \code{R}. Visit their GitHub repository
+\href{https://github.com/zjph602xtc/PWEXP}{PWEXP}.
 }
 \examples{
 # Initial specification
@@ -100,7 +97,11 @@ fit_pwpldis(df, nbreak = 2, exclude_int = c(5, Inf))
 
 }
 \references{
-This function was inspired by the implementation of the \code{PWEXP}
-package in \code{R}. Visit their GitHub repository
-\href{https://github.com/zjph602xtc/PWEXP}{PWEXP}.
+Jerez-Lillo, N., Rodrigues, F. A., Ferreira, P. H., & Ramos, P. L. (2025).
+Beyond the Power Law: Estimation, Goodness-of-Fit, and a Semiparametric
+Extension in Complex Networks. arXiv preprint arXiv:2311.11200. Available at:
+\url{https://arxiv.org/abs/2311.11200}
+}
+\seealso{
+\link{dpwpldis}
 }

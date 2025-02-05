@@ -27,9 +27,13 @@ piecewise power-law model, ensuring that the probability mass function sums
 to one over the defined partitions.
 }
 \details{
+The constants are given by:
+\deqn{C_0=1, \quad C_{i}=\displaystyle\prod_{h=1}^{i} \frac{\zeta(\alpha_h,\tau_{(h)})}{\zeta(\alpha_{h},\tau_{(h-1)})},}
+with \eqn{i=1,\ldots,k.}
+
 The function assumes that \code{p} and \code{alpha} have the same length.
-The calculation involves the Hurwitz zeta function from the
-VGAM package.
+
+The calculation involves the Hurwitz zeta function from the VGAM package.
 }
 \examples{
 # Example with increasing parameters
@@ -41,4 +45,10 @@ Cj_pwpldis(c(1, 3, 5), c(2.5, 2.0, 1.5))
 # Example with non-equidistant partitions
 Cj_pwpldis(c(1, 2, 6), c(2.0, 3.0, 1.5))
 
+}
+\references{
+Jerez-Lillo, N., Rodrigues, F. A., Ferreira, P. H., & Ramos, P. L. (2025).
+Beyond the Power Law: Estimation, Goodness-of-Fit, and a Semiparametric
+Extension in Complex Networks. arXiv preprint arXiv:2311.11200. Available at:
+\url{https://arxiv.org/abs/2311.11200}
 }

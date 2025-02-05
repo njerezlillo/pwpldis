@@ -7,7 +7,7 @@
 #' @param time A numeric vector of observations.
 #' @param nsim An integer specifying the number of bootstrap simulations.
 #' Default is 100.
-#' @param brks A numeric vector of fixed change points for the piecewise power-law model.
+#' @param brks A numeric vector of change points for the piecewise power-law model.
 #' If NULL, the change points are estimated.
 #' @param nbreak An integer specifying the number of change points in the model.
 #' Default is 1.
@@ -30,8 +30,7 @@
 #' This function performs a bootstrap procedure by resampling the original dataset
 #' (`time`) with replacement for `nsim` iterations. For each resample, the function
 #' fits a piecewise power-law model using either the specified or estimated change points,
-#' and the model parameters are recorded. The function supports parallel processing
-#' using the `doSNOW` and `foreach` packages to speed up simulations when `parallel = TRUE`.
+#' and the model parameters are recorded.
 #'
 #' The `exclude_int` parameter prevents change points from being placed in a specific interval.
 #' The `min_pt_tail` parameter ensures that the last segment has a sufficient number of
@@ -39,6 +38,10 @@
 #'
 #' After the bootstrap simulations, the results are aggregated and returned,
 #' including the estimated change points and scaling parameters for each segment.
+#'
+#' This function was inspired by the implementation of the `PWEXP`
+#' package in `R`. Visit their GitHub repository
+#' [PWEXP](https://github.com/zjph602xtc/PWEXP).
 #'
 #' @return A `data.frame` with the results of the bootstrap procedure, including the
 #' following columns:
@@ -51,11 +54,15 @@
 #'   \item{BIC}{The Bayesian Information Criterion in each bootstrap iteration.}
 #' }
 #'
-#' @references This function was inspired by the implementation of the `PWEXP`
-#' package in `R`. Visit their GitHub repository
-#' [PWEXP](https://github.com/zjph602xtc/PWEXP).
+#' @references
+#' Jerez-Lillo, N., Rodrigues, F. A., Ferreira, P. H., & Ramos, P. L. (2025).
+#' Beyond the Power Law: Estimation, Goodness-of-Fit, and a Semiparametric
+#' Extension in Complex Networks. arXiv preprint arXiv:2311.11200. Available at:
+#' \url{https://arxiv.org/abs/2311.11200}
 #'
 #' @examples
+#'
+#' @seealso [fit_pwpldis]
 #'
 #' @importFrom doSNOW registerDoSNOW
 #' @importFrom foreach foreach `%dopar%`

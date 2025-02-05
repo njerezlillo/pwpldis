@@ -24,7 +24,7 @@ boot_pwpldis(
 \item{nsim}{An integer specifying the number of bootstrap simulations.
 Default is 100.}
 
-\item{brks}{A numeric vector of fixed change points for the piecewise power-law model.
+\item{brks}{A numeric vector of change points for the piecewise power-law model.
 If NULL, the change points are estimated.}
 
 \item{nbreak}{An integer specifying the number of change points in the model.
@@ -72,8 +72,7 @@ times and fits the model parameters for each bootstrap sample.
 This function performs a bootstrap procedure by resampling the original dataset
 (\code{time}) with replacement for \code{nsim} iterations. For each resample, the function
 fits a piecewise power-law model using either the specified or estimated change points,
-and the model parameters are recorded. The function supports parallel processing
-using the \code{doSNOW} and \code{foreach} packages to speed up simulations when \code{parallel = TRUE}.
+and the model parameters are recorded.
 
 The \code{exclude_int} parameter prevents change points from being placed in a specific interval.
 The \code{min_pt_tail} parameter ensures that the last segment has a sufficient number of
@@ -81,9 +80,17 @@ observations for stable parameter estimation.
 
 After the bootstrap simulations, the results are aggregated and returned,
 including the estimated change points and scaling parameters for each segment.
-}
-\references{
+
 This function was inspired by the implementation of the \code{PWEXP}
 package in \code{R}. Visit their GitHub repository
 \href{https://github.com/zjph602xtc/PWEXP}{PWEXP}.
+}
+\references{
+Jerez-Lillo, N., Rodrigues, F. A., Ferreira, P. H., & Ramos, P. L. (2025).
+Beyond the Power Law: Estimation, Goodness-of-Fit, and a Semiparametric
+Extension in Complex Networks. arXiv preprint arXiv:2311.11200. Available at:
+\url{https://arxiv.org/abs/2311.11200}
+}
+\seealso{
+\link{fit_pwpldis}
 }

@@ -12,13 +12,24 @@
 #' \eqn{\alpha_{(1)}, \ldots, \alpha_{(k + 1)}} corresponding to each partition.
 #' All values must be greater than 1.
 #'
+#' @details
+#' The constants are given by:
+#' \deqn{C_0=1, \quad C_{i}=\displaystyle\prod_{h=1}^{i} \frac{\zeta(\alpha_h,\tau_{(h)})}{\zeta(\alpha_{h},\tau_{(h-1)})},}
+#' with \eqn{i=1,\ldots,k.}
+#'
+#' The function assumes that `p` and `alpha` have the same length.
+#'
+#' The calculation involves the Hurwitz zeta function from the VGAM package.
+#'
 #' @return A numeric vector containing the normalizing constants for each
 #'         partition of the model. By definition, the first value returned
 #'         is 1, and the last is 0.
 #'
-#' @details The function assumes that `p` and `alpha` have the same length.
-#'          The calculation involves the Hurwitz zeta function from the
-#'          VGAM package.
+#' @references
+#' Jerez-Lillo, N., Rodrigues, F. A., Ferreira, P. H., & Ramos, P. L. (2025).
+#' Beyond the Power Law: Estimation, Goodness-of-Fit, and a Semiparametric
+#' Extension in Complex Networks. arXiv preprint arXiv:2311.11200. Available at:
+#' \url{https://arxiv.org/abs/2311.11200}
 #'
 #' @examples
 #' # Example with increasing parameters

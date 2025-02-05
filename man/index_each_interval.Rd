@@ -10,7 +10,7 @@ index_each_interval(x, p)
 n_each_interval(x, p)
 }
 \arguments{
-\item{x}{A numeric vector representing the sample.}
+\item{x}{A numeric vector of observations.}
 
 \item{p}{A numeric vector specifying the minimum value \eqn{\tau_{(0)}} and
 change points \eqn{\tau_{(1)}, \ldots, \tau_{(k)}} that define the partitions,
@@ -28,8 +28,7 @@ in each interval.
 \description{
 These functions identify and count the number of observations within
 specified intervals defined by the change points in \code{p}. The intervals are
-assumed to be left-closed and right-open, except for the last interval,
-which is fully closed.
+assumed to be left-closed and right-open.
 }
 \details{
 The intervals follow the structure:
@@ -37,7 +36,7 @@ The intervals follow the structure:
 except for the last partition, which is closed: \eqn{[\tau_{(k)}, \infty)}.
 }
 \examples{
-x <- c(6.9, 7.0, 5.8, 3.7, 1.7, 5.2, 2.2, 6.6, 2.9, 4.9)
+x <- c(7, 7, 6, 4, 1, 5, 2, 6, 3, 5)
 
 # Get indices of observations within each interval
 index_each_interval(x, c(1, 3, 5))

@@ -29,7 +29,7 @@ change points \eqn{\tau_{(1)}, \ldots, \tau_{(k)}} that define the partitions,
 i.e., \eqn{p = (\tau_{(0)}, \tau_{(1)}, \ldots, \tau_{(k)})}. It must be sorted
 in increasing order.}
 
-\item{alpha}{A numeric vector of scaling parameters
+\item{alpha}{A numeric vector of scaling parameters.
 \eqn{\alpha_{(1)}, \ldots, \alpha_{(k + 1)}} corresponding to each partition.
 All values must be greater than 1.}
 
@@ -54,18 +54,54 @@ survival function, hazard function, quantile function, and random generation
 for the discrete piecewise power-law distribution.
 }
 \details{
+Consider a partition over \eqn{\mathcal{R} = [\tau_{(0)}, +\infty)} yielding
+\eqn{\mathcal{R} = \mathcal{R}_1 \cup \ldots \cup \,\mathcal{R}_{k + 1}}, with
+\eqn{\mathcal{R}_{j} = [\tau_{(j-1)}, \tau_{(j)})} for \eqn{j = 1, \dots, k + 1},
+where \eqn{\tau_{(0)} \geq 1} is the sample minimum, \eqn{\tau_{(1)}< \ldots< \tau_{(k)}}
+are change points, and \eqn{\tau_{(k+1)} = +\infty}. The probability mass function of
+the discrete piecewise power-law model is given by:
+\deqn{p(x)&=\sum_{j=1}^{k + 1} \left[\frac{x^{-\alpha_j}}{\zeta(\alpha_j,\tau_{(j-1)})}
+\cdot C_{j-1} \right] \mathbbm{1}_{\mathcal{R}_j}(x)}
+where \eqn{C_0=1}, and \eqn{C_{i}=\displaystyle\prod_{h=1}^{i} \frac{\zeta(\alpha_h,\tau_{(h)})}{\zeta(\alpha_{h},\tau_{(h-1)})},}
+with \eqn{i=1,\ldots,k}, normalization constants.
+
 The function assumes that \code{p} and \code{alpha} have the same length.
-Some functions rely on the Hurwitz zeta function from the
-VGAM package.
+Some functions rely on the Hurwitz zeta function from the VGAM package.
+
+This function was inspired by the implementation of the \code{PWEXP}
+package in \code{R}. Visit their GitHub repository
+\href{https://github.com/zjph602xtc/PWEXP}{PWEXP}.
 }
 \examples{
+# Define parameters for the piecewise discrete power-law distribution
 p <- c(1, 3, 5)
 alpha <- c(1.5, 2, 3)
+
+# Calculate the density at a specific point (5)
 dpwpldis(5, p, alpha)
+
+# Calculate the cumulative distribution function at point 5
 ppwpldis(5, p, alpha)
+
+# Calculate the survival function at point 5
 spwpldis(5, p, alpha)
+
+# Calculate the hazard function at point 5
 hpwpldis(5, p, alpha)
+
+# Calculate the quantile corresponding to a 50\% probability (median)
 qpwpldis(0.5, p, alpha)
+
+# Generate 10 random samples from the discrete power-law distribution
 rpwpldis(10, p, alpha)
 
+}
+\references{
+Jerez-Lillo, N., Rodrigues, F. A., Ferreira, P. H., & Ramos, P. L. (2025).
+Beyond the Power Law: Estimation, Goodness-of-Fit, and a Semiparametric
+Extension in Complex Networks. arXiv preprint arXiv:2311.11200. Available at:
+\url{https://arxiv.org/abs/2311.11200}
+}
+\seealso{
+\link{Cj_pwpldis}
 }

@@ -20,22 +20,38 @@ in increasing order.}
 }
 \value{
 A numeric value representing the log-likelihood of the data given
-the specified parameters and change points
+the specified parameters and change points.
 }
 \description{
-This function computes the log-likelihood for a discrete piecewise power-law model.
-It evaluates the log-likelihood given a set of parameters, observed data, and
-the change points that define the intervals.
+This function computes the log-likelihood for a discrete piecewise power-law
+model. It evaluates the log-likelihood given a set of parameters, observed data,
+and the change points that define the intervals.
 }
 \details{
 The function assumes that \code{p} and \code{alpha} have the same length.
-The calculation involves the Hurwitz zeta function from the
-VGAM package.
+
+The calculation involves the Hurwitz zeta function from the VGAM package.
+
+This function was inspired by the implementation of the \code{PWEXP}
+package in \code{R}. Visit their GitHub repository
+\href{https://github.com/zjph602xtc/PWEXP}{PWEXP}.
 }
 \examples{
+# Example data
 x <- c(7, 7, 6, 4, 1, 5, 2, 6, 3, 5)
+
+# Evaluating the log-likelihood for different parameter values
 loglik_pwpldis(c(2.0, 3.5), x, c(1, 4))
 loglik_pwpldis(c(2.5, 3.0), x, c(1, 4))
 loglik_pwpldis(c(1.5, 2.0), x, c(1, 4))
 
+}
+\references{
+Jerez-Lillo, N., Rodrigues, F. A., Ferreira, P. H., & Ramos, P. L. (2025).
+Beyond the Power Law: Estimation, Goodness-of-Fit, and a Semiparametric
+Extension in Complex Networks. arXiv preprint arXiv:2311.11200. Available at:
+\url{https://arxiv.org/abs/2311.11200}
+}
+\seealso{
+\link{dpwpldis}
 }

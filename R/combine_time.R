@@ -1,9 +1,9 @@
-#' Combine Close Time Points Based on a Tolerance Threshold
+#' Combine Close Observations Based on a Tolerance Threshold
 #'
-#' This function modifies a numeric vector of time points by merging values
+#' This function modifies a numeric vector of observations by merging values
 #' that are within a specified tolerance threshold.
 #'
-#' @param time A numeric vector containing the time points to be adjusted.
+#' @param time A numeric vector containing the observations to be adjusted.
 #' @param tol A numeric value representing the tolerance threshold, defined as
 #' a fraction of the difference between the first and last values in `time`.
 #'

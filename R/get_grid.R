@@ -1,18 +1,18 @@
 #' Generate a Grid of Breakpoints
 #'
 #' This function constructs a grid of change points for the discrete piecewise
-#' power-law model. It selects a subset of unique time points and ensures that
+#' power-law model. It selects a subset of unique observations and ensures that
 #' the number of combinations does not exceed a specified limit.
-#' The function also allows for the inclusion of fixed change points and provides
-#' an option to remove the first time point.
 #'
-#' @param time A numeric vector of time points.
-#' @param breakpoint A numeric vector of change points to be included in the grid.
-#' @param nbreak An integer specifying the desired number of change points.
-#' @param max_set An integer specifying the maximum number of combinations to generate (default is 5000).
-#' @param remove_first A logical value indicating whether to exclude the first time point (default is TRUE).
+#' @param time A numeric vector of observations.
+#' @param breakpoint A numeric vector specifying fixed change points.
+#' @param nbreak An integer specifying the number of change points in the model.
+#' @param max_set An integer specifying the maximum number of combinations to generate.
+#' Default is 5000.
+#' @param remove_first A logical value indicating whether to exclude the first time point.
+#' Default is `TRUE`.
 #'
-#' @return A matrix where each row represents a combination of time points
+#' @return A matrix where each row represents a combination of observations
 #' forming a set of change points for the model.
 #'
 #' @author Tianchen Xu <zjph602xutianchen@gmail.com>

@@ -2,12 +2,12 @@
 % Please edit documentation in R/combine_time.R
 \name{combine_time}
 \alias{combine_time}
-\title{Combine Close Time Points Based on a Tolerance Threshold}
+\title{Combine Close Observations Based on a Tolerance Threshold}
 \usage{
 combine_time(time, tol)
 }
 \arguments{
-\item{time}{A numeric vector containing the time points to be adjusted.}
+\item{time}{A numeric vector containing the observations to be adjusted.}
 
 \item{tol}{A numeric value representing the tolerance threshold, defined as
 a fraction of the difference between the first and last values in \code{time}.}
@@ -17,7 +17,7 @@ A modified numeric vector where values within the tolerance
 threshold have been merged with the preceding value.
 }
 \description{
-This function modifies a numeric vector of time points by merging values
+This function modifies a numeric vector of observations by merging values
 that are within a specified tolerance threshold.
 }
 \references{

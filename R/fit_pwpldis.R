@@ -1,20 +1,19 @@
 #' Fit the Discrete Piecewise Power-law Distribution
 #'
 #' This function fits a piecewise power-law distribution to datasets. The user
-#' can specify all change points, some change points, or allow the function to
-#' estimate them. It also provides the option to exclude intervals and specify
+#' can specify all change points or allow the function to estimate them.
+#' It also provides the option to exclude intervals and specify
 #' the minimum number of observations required to estimate the last parameter.
 #'
 #' @param time A numeric vector of observations.
 #' @param breakpoint A numeric vector specifying fixed change points.
-#' @param nbreak An integer specifying the total number of change points in the
-#' model. This includes any change points specified in the `breakpoint` argument.
+#' @param nbreak An integer specifying the number of change points in the model.
 #' @param exclude_int A numeric vector of two values defining an interval in which
 #' estimated change points should be excluded (e.g., `exclude_int = c(10, Inf)`
 #' excludes change points after `time = 10`).
 #' @param min_pt_tail An integer specifying the minimum number of observations
 #' required to estimate the last parameter.
-#' @param max_set An integer specifying the maximum number of possible breakpoint
+#' @param max_set An integer specifying the maximum number of possible change points
 #' combinations to consider.
 #' @param trace A logical value indicating whether to display the optimization
 #' process. Default is `FALSE`.
@@ -23,11 +22,14 @@
 #'
 #' @details
 #' If the user specifies change points, the function checks their validity and removes
-#' change points after the last event time or before the first event time. If `nbreak` is
-#' set to 0, the function estimates the number of change points based on the number of
-#' unique observations. The `exclude_int` argument allows excluding change points that are
-#' too close to the tail. The `min_pt_tail` argument helps in estimating a more robust
-#' scaling parameter for the tail by requiring a minimum number of observations.
+#' change points after the maximum or before the minimum. The `exclude_int` argument
+#' allows excluding change points that are too close to the tail. The `min_pt_tail`
+#' argument helps in estimating a more robust scaling parameter for the tail by
+#' requiring a minimum number of observations.
+#'
+#' This function was inspired by the implementation of the `PWEXP`
+#' package in `R`. Visit their GitHub repository
+#' [PWEXP](https://github.com/zjph602xtc/PWEXP).
 #'
 #' @return A data frame with the following columns:
 #' \describe{
@@ -37,15 +39,12 @@
 #'   \item{AIC}{The Akaike Information Criterion for the model.}
 #'   \item{BIC}{The Bayesian Information Criterion for the model.}
 #' }
-#' The result also contains two additional attributes:
-#' \describe{
-#'   \item{brk}{A vector of the estimated change points.}
-#'   \item{lam}{A vector of the estimated scaling parameters.}
-#' }
 #'
-#' @references This function was inspired by the implementation of the `PWEXP`
-#' package in `R`. Visit their GitHub repository
-#' [PWEXP](https://github.com/zjph602xtc/PWEXP).
+#' @references
+#' Jerez-Lillo, N., Rodrigues, F. A., Ferreira, P. H., & Ramos, P. L. (2025).
+#' Beyond the Power Law: Estimation, Goodness-of-Fit, and a Semiparametric
+#' Extension in Complex Networks. arXiv preprint arXiv:2311.11200. Available at:
+#' \url{https://arxiv.org/abs/2311.11200}
 #'
 #' @examples
 #' # Initial specification
@@ -76,6 +75,8 @@
 #'
 #' # Fit the model with 2 estimated cps, excluding cps beyond 5
 #' fit_pwpldis(df, nbreak = 2, exclude_int = c(5, Inf))
+#'
+#' @seealso [dpwpldis]
 #'
 #' @importFrom fastmatch ctapply
 #' @importFrom maxLik maxLik
