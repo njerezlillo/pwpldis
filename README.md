@@ -1,4 +1,3 @@
-
 # pwpldis Package
 
 <!-- badges: start -->
@@ -7,12 +6,11 @@
 ![Lifecycle: experimental](https://img.shields.io/badge/Lifecycle-Experimental-orange)
 <!-- badges: end -->
 
-This package provides a set of tools for fitting the piecewise discrete power-law model, a flexible statistical framework for modeling data that follows a power-law behavior in different segments. It includes:
+This package provides tools for fitting the piecewise discrete power-law model, a flexible statistical framework for modeling data that exhibits power-law behavior in different segments. It is applicable to fields such as complex networks, empirical distributions, and heavy-tailed phenomena. The package includes:
 
-- Maximum Likelihood Estimation: Methods to estimate model parameters, including breakpoints and power-law exponents.
-- Bootstrap Bias Correction: A resampling procedure to correct estimation bias and quantify uncertainty.
-
-The package is particularly useful for analyzing datasets where the power-law behavior changes at specific points, making it applicable to fields such as complex networks, empirical distributions, and heavy-tailed phenomena.
+- Base Functions: Implementation of various functions related to the model, such as density, survival, hazard, random number generation, and more.
+- Maximum Likelihood Estimation: A method for estimating model parameters, including change points and scaling parameters.
+- Bootstrap Bias Correction: A resampling procedure for correcting estimation bias and quantifying uncertainty.
 
 ## Progress status
 
