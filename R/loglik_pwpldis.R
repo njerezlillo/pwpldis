@@ -26,6 +26,8 @@
 #' loglik_pwpldis(c(2.5, 3.0), x, c(1, 4))
 #' loglik_pwpldis(c(1.5, 2.0), x, c(1, 4))
 #'
+#' @importFrom VGAM zeta
+#'
 #' @export
 loglik_pwpldis <- function(alpha, x, p)
 {

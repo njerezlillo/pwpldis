@@ -4,7 +4,6 @@
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/njerezlillo/pwpldis/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/njerezlillo/pwpldis/actions/workflows/R-CMD-check.yaml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
-![Functions](https://img.shields.io/badge/Functions-13-lightblue)
 ![Lifecycle: experimental](https://img.shields.io/badge/Lifecycle-Experimental-orange)
 <!-- badges: end -->
 
@@ -15,6 +14,17 @@ This package provides a set of tools for fitting the piecewise discrete power-la
 
 The package is particularly useful for analyzing datasets where the power-law behavior changes at specific points, making it applicable to fields such as complex networks, empirical distributions, and heavy-tailed phenomena.
 
+## Progress status
+
+- [x] Set up the package structure  
+- [x] Write functions  
+- [x] Document functions
+- [ ] Write examples for each function in the package
+- [ ] Check the documentation
+- [x] Publish on GitHub  
+- [ ] Complete the "Example" section on GitHub
+- [ ] Distribute on CRAN
+
 ## Installation
 
 You can install the package using:
@@ -23,11 +33,6 @@ You can install the package using:
 # install.packages("devtools")
 devtools::install_github("njerezlillo/pwpldis")
 ```
-
-## Estado de avance
-
-- [x] Tarea completada
-- [ ] Tarea pendiente
 
 ## Example
 
