@@ -17,8 +17,9 @@
 #'   in each interval.
 #'
 #' @details The intervals follow the structure:
-#' \deqn{[\tau_{(0)}, \tau_{(1)}), [\tau_{(1)}, \tau_{(2)}), ..., [\tau_{(k-1)}, \tau_{(k)})}
-#' except for the last partition, which is closed: \eqn{[\tau_{(k)}, \infty)}.
+#' \deqn{\mathcal{R}_1 = [\tau_{(0)}, \tau_{(1)}), \mathcal{R}_2 = [\tau_{(1)}, \tau_{(2)}),
+#' ..., \mathcal{R}_{k} = [\tau_{(k-1)}, \tau_{(k)})}
+#' except for the last partition, which is closed: \eqn{\mathcal{R}_{k+1} = [\tau_{(k)}, \infty)}.
 #'
 #' @examples
 #' x <- c(7, 7, 6, 4, 1, 5, 2, 6, 3, 5)

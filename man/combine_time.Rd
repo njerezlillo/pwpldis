@@ -25,5 +25,5 @@ This function was extracted from the GitHub repository
 \href{https://github.com/zjph602xtc/PWEXP}{PWEXP}.
 }
 \author{
-Tianchen Xu \href{mailto:zjph602xutianchen@gmail.com}{zjph602xutianchen@gmail.com}
+Tianchen Xu (\href{mailto:zjph602xutianchen@gmail.com}{zjph602xutianchen@gmail.com})
 }

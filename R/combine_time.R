@@ -10,7 +10,7 @@
 #' @return A modified numeric vector where values within the tolerance
 #' threshold have been merged with the preceding value.
 #'
-#' @author Tianchen Xu <zjph602xutianchen@gmail.com>
+#' @author Tianchen Xu (<zjph602xutianchen@gmail.com>)
 #'
 #' @references This function was extracted from the GitHub repository
 #' [PWEXP](https://github.com/zjph602xtc/PWEXP).

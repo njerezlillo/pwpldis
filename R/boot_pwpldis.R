@@ -8,7 +8,7 @@
 #' @param nsim An integer specifying the number of bootstrap simulations.
 #' Default is 100.
 #' @param brks A numeric vector of change points for the piecewise power-law model.
-#' If NULL, the change points are estimated.
+#' If `NULL`, the change points are estimated.
 #' @param nbreak An integer specifying the number of change points in the model.
 #' Default is 1.
 #' @param exclude_int A numeric vector of two values specifying an interval where
@@ -21,7 +21,7 @@
 #' @param tol A numeric value specifying the tolerance for combining close change points.
 #' Default is 1e-4.
 #' @param parallel A logical value indicating whether to use parallel processing
-#' for bootstrap simulations. Default is FALSE.
+#' for bootstrap simulations. Default is `FALSE`.
 #' @param mc.core An integer specifying the number of cores to use in parallel processing.
 #' Default is 4.
 #' @param ... Additional arguments passed to the underlying `fit_pwpldis` function.
@@ -61,6 +61,37 @@
 #' \url{https://arxiv.org/abs/2311.11200}
 #'
 #' @examples
+#' # Initial specification
+#' set.seed(2025)
+#' p <- c(1, 3, 5)
+#' alpha <- c(1.5, 2, 3)
+#'
+#' # Generate a dataset from the discrete piecewise power-law model
+#' df <- rpwpldis(300, p, alpha)
+#'
+#' # Fit the piecewise power-law distribution with a predefined change point at 3
+#' fit_1 <- fit_pwpldis(df, breakpoint = 3)
+#'
+#' # Perform the bootstrap procedure with a predefined change point at 3
+#' boot_1 <- boot_pwpldis(df, brks = fit_1$tau_1)
+#'
+#' # Calculate the bias-corrected parameters
+#' 2 * fit_1[, 3:4] - apply(boot_1[, 3:4], 2, mean)
+#'
+#' # Calculate the 95% confidence intervals for the bootstrap estimates of the model parameters
+#' apply(boot_1[, 3:4], 2, function(x) quantile(x, c(0.025, 0.975)))
+#'
+#' # Fit the model with 1 change point estimated from the data
+#' fit_2 <- fit_pwpldis(df, nbreak = 1)
+#'
+#' # Perform the bootstrap procedure with 1 change point estimated from the data
+#' boot_2 <- boot_pwpldis(df, nbreak = 1)
+#'
+#' # Calculate the bias-corrected parameters for the second model
+#' 2 * fit_2[, 3:4] - apply(boot_2[, 3:4], 2, mean)
+#'
+#' # Calculate the 95% confidence intervals for the bootstrap estimates of the second model
+#' apply(boot_2[, 3:4], 2, function(x) quantile(x, c(0.025, 0.975)))
 #'
 #' @seealso [fit_pwpldis]
 #'

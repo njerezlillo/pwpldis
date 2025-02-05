@@ -15,7 +15,7 @@
 #' @return A matrix where each row represents a combination of observations
 #' forming a set of change points for the model.
 #'
-#' @author Tianchen Xu <zjph602xutianchen@gmail.com>
+#' @author Tianchen Xu (<zjph602xutianchen@gmail.com>)
 #'
 #' @references This function was extracted from the GitHub repository
 #' [PWEXP](https://github.com/zjph602xtc/PWEXP).

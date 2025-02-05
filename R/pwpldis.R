@@ -19,11 +19,11 @@
 #' Consider a partition over \eqn{\mathcal{R} = [\tau_{(0)}, +\infty)} yielding
 #' \eqn{\mathcal{R} = \mathcal{R}_1 \cup \ldots \cup \,\mathcal{R}_{k + 1}}, with
 #' \eqn{\mathcal{R}_{j} = [\tau_{(j-1)}, \tau_{(j)})} for \eqn{j = 1, \dots, k + 1},
-#' where \eqn{\tau_{(0)} \geq 1} is the sample minimum, \eqn{\tau_{(1)}< \ldots< \tau_{(k)}}
+#' where \eqn{\tau_{(0)} \geq 1} is the sample minimum, \eqn{\tau_{(1)}\leq \ldots\leq \tau_{(k)}}
 #' are change points, and \eqn{\tau_{(k+1)} = +\infty}. The probability mass function of
 #' the discrete piecewise power-law model is given by:
-#' \deqn{p(x)&=\sum_{j=1}^{k + 1} \left[\frac{x^{-\alpha_j}}{\zeta(\alpha_j,\tau_{(j-1)})}
-#' \cdot C_{j-1} \right] \mathbbm{1}_{\mathcal{R}_j}(x)}
+#' \deqn{p(x)=\displaystyle\sum_{j=1}^{k + 1} \left[\dfrac{x^{-\alpha_j}}{\zeta(\alpha_j,\tau_{(j-1)})}
+#' \cdot C_{j-1} \right] \text{I}_{\mathcal{R}_j}(x)}
 #' where \eqn{C_0=1}, and \eqn{C_{i}=\displaystyle\prod_{h=1}^{i} \frac{\zeta(\alpha_h,\tau_{(h)})}{\zeta(\alpha_{h},\tau_{(h-1)})},}
 #' with \eqn{i=1,\ldots,k}, normalization constants.
 #'
