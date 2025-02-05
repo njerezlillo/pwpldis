@@ -17,8 +17,8 @@ This package provides tools for fitting the piecewise discrete power-law model, 
 - [x] Set up the package structure  
 - [x] Write functions  
 - [x] Document functions
-- [ ] Write examples for each function in the package
-- [ ] Check the documentation
+- [x] Write examples for each function in the package
+- [x] Check the documentation
 - [x] Publish on GitHub  
 - [ ] Complete the "Example" section on GitHub
 - [ ] Distribute on CRAN
