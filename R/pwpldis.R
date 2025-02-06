@@ -19,7 +19,7 @@
 #' Consider a partition over \eqn{\mathcal{R} = [\tau_{(0)}, +\infty)} yielding
 #' \eqn{\mathcal{R} = \mathcal{R}_1 \cup \ldots \cup \,\mathcal{R}_{k + 1}}, with
 #' \eqn{\mathcal{R}_{j} = [\tau_{(j-1)}, \tau_{(j)})} for \eqn{j = 1, \dots, k + 1},
-#' where \eqn{\tau_{(0)} \geq 1} is the sample minimum, \eqn{\tau_{(1)}\leq \ldots\leq \tau_{(k)}}
+#' where \eqn{\tau_{(0)} \geq 1} is the sample minimum, \eqn{\tau_{(1)} < \ldots < \tau_{(k)}}
 #' are change points, and \eqn{\tau_{(k+1)} = +\infty}. The probability mass function of
 #' the discrete piecewise power-law model is given by:
 #' \deqn{p(x)=\displaystyle\sum_{j=1}^{k + 1} \left[\dfrac{x^{-\alpha_j}}{\zeta(\alpha_j,\tau_{(j-1)})}
