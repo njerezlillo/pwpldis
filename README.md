@@ -61,19 +61,17 @@ In this step, we apply a bootstrap procedure using the estimated change point fr
 boot_1 <- boot_pwpldis(df, brks = fit_1$tau_1)
 ```
 
-First, we compute the bias-corrected maximum likelihood estimators using the following equation (see Ferrari and Cribari-Neto, 1998 for details):
+First, we compute the bias-corrected maximum likelihood estimators using the following equation (see Jerez-Lillo N. *et al.*, 2015 for details):
 
 <p align="center">
   <img src="bootstrap-bias-corrected.png" alt="">
 </p>
 
-where $\hat{\alpha}_{j}$ is the estimate from the original data, and $\hat{\alpha}^{(i)}$ denotes the estimated scaling parameter for each bootstrap sample, with $i=1, \ldots, B$, where $B$ is set to 100 by default in the `boot_pwpldis` function.
-
 ```r
 2 * fit_1[, 3:4] - apply(boot_1[, 3:4], 2, mean)
 ```
 
-Second, we compute the 95% confidence intervals for the scaling parameters of the piecewise model using the empirical quantiles of the bootstrap distribution. Specifically, we compute the interval $(\hat{\alpha}{\gamma/2}^{*}, \hat{\alpha}{1-\gamma/2}^{*})$, where $\hat{\alpha}_{\gamma/2}^{*}$ and $\hat{\alpha}_{1-\gamma/2}^{*}$ are the $\gamma/2$-th and $(1 - \gamma/2)$-th percentiles of the bootstrap distribution, respectively.
+Second, we compute the 95% confidence intervals for the scaling parameters of the piecewise model using the empirical quantiles of the bootstrap distribution.
 
 ``` r
 apply(boot_2[, 3:4], 2, function(x) quantile(x, c(0.025, 0.975)))
@@ -108,4 +106,6 @@ For LaTeX users, the corresponding BibTeX entry is:
 
 ## References  
 
-Ferrari, S. L. P., & Cribari-Neto, F. (1998). On bootstrap and analytical bias corrections. *Economics Letters, 58*(1), 7–15.  
+[**Beyond the Power Law: Estimation, Goodness-of-Fit, and a Semiparametric Extension in Complex Networks**](https://arxiv.org/abs/2311.11200)  
+*N. Jerez-Lillo, F. A. Rodrigues, P. H. Ferreira, P. L. Ramos*  
+arXiv preprint arXiv:2311.11200 
