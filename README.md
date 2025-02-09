@@ -62,10 +62,12 @@ boot_1 <- boot_pwpldis(df, brks = fit_1$tau_1)
 ```
 
 First, we compute the bias-corrected maximum likelihood estimators using the following equation (see Ferrari and Cribari-Neto, 1998 for details):
+
 $$
-\hat{\alpha}_j^{\text{(boot)}} = 2\hat{\alpha}_j - \frac{1}{B} \sum_{i=1}^{B} \hat{\alpha}_j^{(i)}, \quad j=1,\ldots, k+1,
+\hat{\alpha}_{j}^{\text{(boot)}} = 2\hat{\alpha}_{j} - \frac{1}{B} \sum_{i=1}^{B} \hat{\alpha}_{j}^{(i)}, \quad j=1,\ldots, k+1,
 $$
-where $\hat{\alpha}_j$ is the estimate from the original data, and $\hat{\alpha}^{(i)}$ denotes the estimated scaling parameter for each bootstrap sample, with $i=1, \ldots, B$, where $B$ is set to 100 by default in the `boot_pwpldis` function.
+
+where $\hat{\alpha}_{j}$ is the estimate from the original data, and $\hat{\alpha}^{(i)}$ denotes the estimated scaling parameter for each bootstrap sample, with $i=1, \ldots, B$, where $B$ is set to 100 by default in the `boot_pwpldis` function.
 
 ```{r, echo=TRUE}
 2 * fit_1[, 3:4] - apply(boot_1[, 3:4], 2, mean)
