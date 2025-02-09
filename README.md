@@ -34,51 +34,50 @@ devtools::install_github("njerezlillo/pwpldis")
 
 ## Example
 
-In this example, `p` represents the breakpoints that define distinct power-law segments 
-within the distribution, while the corresponding exponents, `alpha`, govern the behavior 
-of each segment.  
+This section provides a concise example demonstrating how to use the main functions of the package:
 
-To ensure reproducibility, we set a fixed random seed with `set.seed(2025)`. Finally, we 
-generate a dataset of 1,000 observations using the `rpwpldis` function.
+We begin by generating a dataset 1,000 observations using the `rpwpldis` function from the discrete piecewise power-law model with specified parameters and change points. In this example, `p` represents the change points that define distinct power-law segments within the distribution, while `alpha` refers to the corresponding scaling parameters of each segment.
 
 ``` r
 library(pwpldis)
 
 p <- c(1, 10)
 alpha <- c(1.5, 3.5)
-set.seed(2025)
 df <- rpwpldis(1000, p, alpha)
 ```
 
-We estimate the discrete piecewise power-law model for the dataset `df` using the `fit_pwpldis` function. The argument `nbreak = 1` specifies that the model should be 
-fitted with a single change point. The function returns the estimated change point location 
-along with the corresponding scaling parameters
+We estimate the discrete piecewise power-law model for the dataset `df` previously generated using the `fit_pwpldis` function. The argument `nbreak = 1` indicates that the model should be fitted with a single change point. This function returns the estimated location of the change point along with the corresponding scaling parameters.
 
 ``` r
 fit_1 <- fit_pwpldis(df, nbreak = 1)
 ```
 
-In this step, we apply a bootstrap procedure to refine the maximum likelihood estimators 
-and create confidence intervals for them by resampling with replacement. To ensure 
-consistency, the predefined breakpoint is taken from the fitted model `fit_1$tau_1`.
+In this step, we apply a bootstrap procedure using the estimated change point from `fit_1$tau_1` with two main objectives: 
+
+- Creating bias-corrected versions of the maximum likelihood estimators.
+- Constructing bootstrap confidence intervals for the model parameters.
 
 ``` r
 boot_1 <- boot_pwpldis(df, brks = fit_1$tau_1)
 ```
 
-First, we compute the bias-corrected maximum likelihood estimators:
+First, we compute the bias-corrected maximum likelihood estimators using the following equation (see Ferrari and Cribari-Neto, 1998 for details):
+$$
+\hat{\alpha}_j^{\text{(boot)}} = 2\hat{\alpha}_j - \frac{1}{B} \sum_{i=1}^{B} \hat{\alpha}_j^{(i)}, \quad j=1,\ldots, k+1,
+$$
+where $\hat{\alpha}_j$ is the estimate from the original data, and $\hat{\alpha}^{(i)}$ denotes the estimated scaling parameter for each bootstrap sample, with $i=1, \ldots, B$, where $B$ is set to 100 by default in the `boot_pwpldis` function.
 
-``` r
+```{r, echo=TRUE}
 2 * fit_1[, 3:4] - apply(boot_1[, 3:4], 2, mean)
 ```
 
-Second, we compute the 95% bootstrap confidence intervals for the maximum likelihood estimators:
+Second, we compute the 95% confidence intervals for the scaling parameters of the piecewise model using the empirical quantiles of the bootstrap distribution. Specifically, we compute the interval $\left[ \hat{\alpha}{\gamma/2}^{*}, \hat{\alpha}{1-\gamma/2}^{*} \right]$, where $\hat{\alpha}_{\gamma/2}^{*}$ and $\hat{\alpha}_{1-\gamma/2}^{*}$ are the $\gamma/2$-th and $(1 - \gamma/2)$-th percentiles of the bootstrap distribution, respectively.
 
 ``` r
 apply(boot_2[, 3:4], 2, function(x) quantile(x, c(0.025, 0.975)))
 ```
 
-Next, the empirical cumulative distribution function (ECDF) of the simulated dataset is plotted to visually assess the distribution of the data. We then compare the empirical distribution with the fitted model.
+Finally, we plot the empirical cumulative distribution function of the simulated dataset to visually assess how well the data follows the cumulative distribution function of the fitted model.
 
 ``` r 
 plot(ecdf(df), cex = 0.5, main = "Empirical vs. Fitted CDF", xlab = "x", ylab = "CDF")
@@ -104,3 +103,7 @@ For LaTeX users, the corresponding BibTeX entry is:
   url = {https://github.com/njerezlillo/pwpldis},
 }
 ```
+
+## References  
+
+Ferrari, S. L. P., & Cribari-Neto, F. (1998). On bootstrap and analytical bias corrections. *Economics Letters, 58*(1), 7–15.  
