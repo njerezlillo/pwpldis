@@ -61,7 +61,7 @@ In this step, we apply a bootstrap procedure using the estimated change point fr
 boot_1 <- boot_pwpldis(df, brks = fit_1$tau_1)
 ```
 
-First, we compute the bias-corrected maximum likelihood estimators using the following equation (see Jerez-Lillo N. *et al.*, 2015 for details):
+First, we compute the bias-corrected maximum likelihood estimators using the following equation (see Jerez-Lillo N. *et al.*, 2025 for details):
 
 <p align="center">
   <img src="bootstrap-bias-corrected.png" alt="">
