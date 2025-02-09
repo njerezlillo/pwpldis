@@ -73,7 +73,7 @@ where $\hat{\alpha}_{j}$ is the estimate from the original data, and $\hat{\alph
 2 * fit_1[, 3:4] - apply(boot_1[, 3:4], 2, mean)
 ```
 
-Second, we compute the 95% confidence intervals for the scaling parameters of the piecewise model using the empirical quantiles of the bootstrap distribution. Specifically, we compute the interval $\left[ \hat{\alpha}{\gamma/2}^{*}, \hat{\alpha}{1-\gamma/2}^{*} \right]$, where $\hat{\alpha}_{\gamma/2}^{*}$ and $\hat{\alpha}_{1-\gamma/2}^{*}$ are the $\gamma/2$-th and $(1 - \gamma/2)$-th percentiles of the bootstrap distribution, respectively.
+Second, we compute the 95% confidence intervals for the scaling parameters of the piecewise model using the empirical quantiles of the bootstrap distribution. Specifically, we compute the interval $(\hat{\alpha}{\gamma/2}^{*}, \hat{\alpha}{1-\gamma/2}^{*})$, where $\hat{\alpha}_{\gamma/2}^{*}$ and $\hat{\alpha}_{1-\gamma/2}^{*}$ are the $\gamma/2$-th and $(1 - \gamma/2)$-th percentiles of the bootstrap distribution, respectively.
 
 ``` r
 apply(boot_2[, 3:4], 2, function(x) quantile(x, c(0.025, 0.975)))
