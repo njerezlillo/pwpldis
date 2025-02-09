@@ -46,7 +46,7 @@ alpha <- c(1.5, 3.5)
 df <- rpwpldis(1000, p, alpha)
 ```
 
-We estimate the discrete piecewise power-law model for the dataset `df` previously generated using the `fit_pwpldis` function. The argument `nbreak = 1` indicates that the model should be fitted with a single change point. This function returns the estimated location of the change point along with the corresponding scaling parameters.
+We estimate the discrete piecewise power-law model for the previously generated dataset `df` using the `fit_pwpldis` function. The argument `nbreak = 1` indicates that the model should be fitted with a single change point. This function returns the estimated location of the change point along with the corresponding scaling parameters.
 
 ``` r
 fit_1 <- fit_pwpldis(df, nbreak = 1)
@@ -74,7 +74,7 @@ First, we compute the bias-corrected maximum likelihood estimators using the fol
 Second, we compute the 95% confidence intervals for the scaling parameters of the piecewise model using the empirical quantiles of the bootstrap distribution.
 
 ``` r
-apply(boot_2[, 3:4], 2, function(x) quantile(x, c(0.025, 0.975)))
+apply(boot_1[, 3:4], 2, function(x) quantile(x, c(0.025, 0.975)))
 ```
 
 Finally, we plot the empirical cumulative distribution function of the simulated dataset to visually assess how well the data follows the cumulative distribution function of the fitted model.
