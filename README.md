@@ -64,7 +64,7 @@ boot_1 <- boot_pwpldis(df, brks = fit_1$tau_1)
 First, we compute the bias-corrected maximum likelihood estimators using the following equation (see Ferrari and Cribari-Neto, 1998 for details):
 
 <p align="center">
-![](bootstrap-bias-corrected.png)
+  <img src="bootstrap-bias-corrected.png" alt="">
 </p>
 
 where $\hat{\alpha}_{j}$ is the estimate from the original data, and $\hat{\alpha}^{(i)}$ denotes the estimated scaling parameter for each bootstrap sample, with $i=1, \ldots, B$, where $B$ is set to 100 by default in the `boot_pwpldis` function.
