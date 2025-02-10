@@ -36,7 +36,7 @@ devtools::install_github("njerezlillo/pwpldis")
 
 This section provides a concise example demonstrating how to use the main functions of the package:
 
-We begin by generating a dataset 1,000 observations using the `rpwpldis` function from the discrete piecewise power-law model with specified parameters and change points. In this example, `p` represents the change points that define distinct power-law segments within the distribution, while `alpha` refers to the corresponding scaling parameters of each segment.
+We begin by generating a dataset of 1,000 observations using the `rpwpldis` function from the discrete piecewise power-law model with specified parameters and change points. In this example, `p` represents the change points that define distinct power-law segments within the distribution, while `alpha` refers to the corresponding scaling parameters of each segment:
 
 ``` r
 library(pwpldis)
@@ -46,7 +46,7 @@ alpha <- c(1.5, 3.5)
 df <- rpwpldis(1000, p, alpha)
 ```
 
-We estimate the discrete piecewise power-law model for the previously generated dataset `df` using the `fit_pwpldis` function. The argument `nbreak = 1` indicates that the model should be fitted with a single change point. This function returns the estimated location of the change point along with the corresponding scaling parameters.
+We estimate the discrete piecewise power-law model for the previously generated dataset `df` using the `fit_pwpldis` function. The argument `nbreak = 1` indicates that the model should be fitted with a single change point. This function returns the estimated location of the change point along with the corresponding scaling parameters:
 
 ``` r
 fit_1 <- fit_pwpldis(df, nbreak = 1)
@@ -71,13 +71,13 @@ First, we compute the bias-corrected maximum likelihood estimators using the fol
 2 * fit_1[, 3:4] - apply(boot_1[, 3:4], 2, mean)
 ```
 
-Second, we compute the 95% confidence intervals for the scaling parameters of the piecewise model using the empirical quantiles of the bootstrap distribution.
+Second, we compute the 95% confidence intervals for the scaling parameters of the piecewise model using the empirical quantiles of the bootstrap distribution:
 
 ``` r
 apply(boot_1[, 3:4], 2, function(x) quantile(x, c(0.025, 0.975)))
 ```
 
-Finally, we plot the empirical cumulative distribution function of the simulated dataset to visually assess how well the data follows the cumulative distribution function of the fitted model.
+Finally, we plot the empirical cumulative distribution function of the simulated dataset to visually assess how well the data follows the cumulative distribution function of the fitted model:
 
 ``` r 
 plot(ecdf(df), cex = 0.5, main = "Empirical vs. Fitted CDF", xlab = "x", ylab = "CDF")
@@ -107,5 +107,5 @@ For LaTeX users, the corresponding BibTeX entry is:
 ## References  
 
 [**Beyond the Power Law: Estimation, Goodness-of-Fit, and a Semiparametric Extension in Complex Networks**](https://arxiv.org/abs/2311.11200)  
-*N. Jerez-Lillo, F. A. Rodrigues, P. H. Ferreira, P. L. Ramos*  
+*Jerez-Lillo N., Rodrigues F. A., Ferreira P. H., Ramos P. L.*  
 arXiv preprint arXiv:2311.11200 
