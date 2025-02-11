@@ -28,6 +28,18 @@ model. It evaluates the log-likelihood given a set of parameters, observed data,
 and the change points that define the intervals.
 }
 \details{
+Consider a partition over \eqn{\mathcal{R} = [\tau_{(0)}, +\infty)} yielding
+\eqn{\mathcal{R} = \mathcal{R}_1 \cup \ldots \cup \,\mathcal{R}_{k + 1}}, with
+\eqn{\mathcal{R}_{j} = [\tau_{(j-1)}, \tau_{(j)})} for \eqn{j = 1, \dots, k + 1},
+where \eqn{\tau_{(0)} \geq 1} is the sample minimum, \eqn{\tau_{(1)} < \ldots < \tau_{(k)}}
+are change points, and \eqn{\tau_{(k+1)} = +\infty}. The log-likelihood function of
+the discrete piecewise power-law model is given by:
+\deqn{\mathcal{L}(\boldsymbol{\theta}) = \displaystyle\sum_{j=1}^{k + 1}\left[n_j\Big(
+\log C_{j-1} - \log \zeta(\alpha_j,\tau_{(j)})\Big) - \alpha_j
+\displaystyle\sum_{i:x_i\in \mathcal{R}_{j}} \log x_i\right],}
+where \eqn{C_0=1}, and \eqn{C_{i}=\displaystyle\prod_{h=1}^{i} \frac{\zeta(\alpha_h,\tau_{(h)})}{\zeta(\alpha_{h},\tau_{(h-1)})},}
+with \eqn{i=1,\ldots,k}, normalization constants.
+
 The function assumes that \code{p} and \code{alpha} have the same length.
 
 The calculation involves the Hurwitz zeta function from the VGAM package.

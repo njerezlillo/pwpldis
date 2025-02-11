@@ -1,7 +1,7 @@
 #' Bootstrap for Piecewise Power-Law Distribution
 #'
 #' This function performs a bootstrap procedure to estimate the distribution of
-#' parameters for a piecewise power-law model. It resamples the dataset multiple
+#' estimators for a piecewise power-law model. It resamples the dataset multiple
 #' times and fits the model parameters for each bootstrap sample.
 #'
 #' @param time A numeric vector of observations.

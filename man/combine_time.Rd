@@ -9,8 +9,7 @@ combine_time(time, tol)
 \arguments{
 \item{time}{A numeric vector containing the observations to be adjusted.}
 
-\item{tol}{A numeric value representing the tolerance threshold, defined as
-a fraction of the difference between the first and last values in \code{time}.}
+\item{tol}{A numeric value representing the tolerance threshold.}
 }
 \value{
 A modified numeric vector where values within the tolerance

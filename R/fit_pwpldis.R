@@ -9,8 +9,8 @@
 #' @param breakpoint A numeric vector specifying fixed change points.
 #' @param nbreak An integer specifying the number of change points in the model.
 #' @param exclude_int A numeric vector of two values defining an interval in which
-#' estimated change points should be excluded (e.g., `exclude_int = c(10, Inf)`
-#' excludes change points after `time = 10`).
+#' estimated change points should be excluded (e.g., `exclude_int = c(5, Inf)`
+#' excludes change points after `time = 5`).
 #' @param min_pt_tail An integer specifying the minimum number of observations
 #' required to estimate the last parameter.
 #' @param max_set An integer specifying the maximum number of possible change points

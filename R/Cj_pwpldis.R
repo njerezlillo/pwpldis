@@ -33,13 +33,13 @@
 #'
 #' @examples
 #' # Example with increasing parameters
-#' Cj_pwpldis(c(1, 3, 5), c(1.5, 2.0, 2.5))
+#' Cj_pwpldis(c(1, 3), c(1.5, 2.0))
 #'
 #' # Example with decreasing parameters
 #' Cj_pwpldis(c(1, 3, 5), c(2.5, 2.0, 1.5))
 #'
 #' # Example with non-equidistant partitions
-#' Cj_pwpldis(c(1, 2, 6), c(2.0, 3.0, 1.5))
+#' Cj_pwpldis(c(1, 2, 4, 7), c(2.0, 2.5, 1.5, 2.0))
 #'
 #' @importFrom VGAM zeta
 #'

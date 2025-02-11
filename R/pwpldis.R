@@ -28,6 +28,7 @@
 #' with \eqn{i=1,\ldots,k}, normalization constants.
 #'
 #' The function assumes that `p` and `alpha` have the same length.
+#'
 #' Some functions rely on the Hurwitz zeta function from the VGAM package.
 #'
 #' This function was inspired by the implementation of the `PWEXP`
@@ -54,7 +55,7 @@
 #' p <- c(1, 3, 5)
 #' alpha <- c(1.5, 2, 3)
 #'
-#' # Calculate the density at a specific point (5)
+#' # Calculate the density at a specific point
 #' dpwpldis(5, p, alpha)
 #'
 #' # Calculate the cumulative distribution function at point 5
@@ -78,47 +79,40 @@
 #' @importFrom stats runif
 #'
 #' @export
-dpwpldis <- function (x, p, alpha)
-{
-  if (x < p[1]) stop(return(0))
+dpwpldis <- Vectorize(function(x, p, alpha) {
+  if (x < p[1]) return(0)
   C <- Cj_pwpldis(p, alpha)
   j <- max(which(p <= x))
 
   x^(-alpha[j]) / zeta(alpha[j], shift = p[j]) * C[j]
-}
+}, vectorize.args = "x")
 
 #' @rdname dpwpldis
 #' @export
-ppwpldis <- function (x, p, alpha)
-{
-  if (x < p[1]) stop(return(0))
+ppwpldis <- Vectorize(function(x, p, alpha) {
+  if (x < p[1]) return(0)
   C <- Cj_pwpldis(p, alpha)
   j <- max(which(p <= x))
-  u <- 1 - zeta(alpha[j], shift = x + 1)/zeta(alpha[j], shift = p[j]) * C[j]
 
-  return(u)
-}
+  1 - zeta(alpha[j], shift = x + 1) / zeta(alpha[j], shift = p[j]) * C[j]
+}, vectorize.args = "x")
 
 #' @rdname dpwpldis
 #' @export
-spwpldis <- function (x, p, alpha)
-{
+spwpldis <- Vectorize(function(x, p, alpha) {
   1 - ppwpldis(x, p, alpha)
-}
+}, vectorize.args = "x")
 
 #' @rdname dpwpldis
 #' @export
-hpwpldis <- function (x, p, alpha)
-{
-  if (x < p[1]) stop(return(0))
-
+hpwpldis <- Vectorize(function(x, p, alpha) {
+  if (x < p[1]) return(0)
   dpwpldis(x, p, alpha) / spwpldis(x - 1, p, alpha)
-}
+}, vectorize.args = "x")
 
 #' @rdname dpwpldis
 #' @export
-qpwpldis <- function (u, p, alpha)
-{
+qpwpldis <- Vectorize(function(u, p, alpha) {
   x <- p[1]
   while (TRUE) {
     if (ppwpldis(x, p, alpha) >= u) {
@@ -127,9 +121,8 @@ qpwpldis <- function (u, p, alpha)
       x <- x + 1
     }
   }
-
   x
-}
+}, vectorize.args = "u")
 
 #' @rdname dpwpldis
 #' @export

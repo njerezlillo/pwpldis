@@ -66,6 +66,7 @@ where \eqn{C_0=1}, and \eqn{C_{i}=\displaystyle\prod_{h=1}^{i} \frac{\zeta(\alph
 with \eqn{i=1,\ldots,k}, normalization constants.
 
 The function assumes that \code{p} and \code{alpha} have the same length.
+
 Some functions rely on the Hurwitz zeta function from the VGAM package.
 
 This function was inspired by the implementation of the \code{PWEXP}
@@ -77,7 +78,7 @@ package in \code{R}. Visit their GitHub repository
 p <- c(1, 3, 5)
 alpha <- c(1.5, 2, 3)
 
-# Calculate the density at a specific point (5)
+# Calculate the density at a specific point
 dpwpldis(5, p, alpha)
 
 # Calculate the cumulative distribution function at point 5

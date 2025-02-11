@@ -33,10 +33,13 @@ assumed to be left-closed and right-open.
 \details{
 The intervals follow the structure:
 \deqn{\mathcal{R}_1 = [\tau_{(0)}, \tau_{(1)}), \mathcal{R}_2 = [\tau_{(1)}, \tau_{(2)}),
-..., \mathcal{R}_{k} = [\tau_{(k-1)}, \tau_{(k)})}
-except for the last partition, which is closed: \eqn{\mathcal{R}_{k+1} = [\tau_{(k)}, \infty)}.
+..., \mathcal{R}_{k} = [\tau_{(k-1)}, \tau_{(k)}),}
+except for the last partition, which is closed: \eqn{\mathcal{R}_{k+1} = [\tau_{(k)}, +\infty)}.
+
+The function assumes that \code{p} and \code{alpha} have the same length.
 }
 \examples{
+# Example data
 x <- c(7, 7, 6, 4, 1, 5, 2, 6, 3, 5)
 
 # Get indices of observations within each interval

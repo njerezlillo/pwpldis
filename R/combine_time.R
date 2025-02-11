@@ -4,8 +4,7 @@
 #' that are within a specified tolerance threshold.
 #'
 #' @param time A numeric vector containing the observations to be adjusted.
-#' @param tol A numeric value representing the tolerance threshold, defined as
-#' a fraction of the difference between the first and last values in `time`.
+#' @param tol A numeric value representing the tolerance threshold.
 #'
 #' @return A modified numeric vector where values within the tolerance
 #' threshold have been merged with the preceding value.
