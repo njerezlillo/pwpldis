@@ -3,10 +3,10 @@
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/njerezlillo/pwpldis/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/njerezlillo/pwpldis/actions/workflows/R-CMD-check.yaml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
-![Lifecycle: experimental](https://img.shields.io/badge/Lifecycle-Experimental-orange)
+![Lifecycle: ready for use](https://img.shields.io/badge/Lifecycle-ready%20for%20use-steelblue)
 <!-- badges: end -->
 
-This package provides tools for fitting the piecewise discrete power-law model, a flexible statistical framework for modeling data that exhibits power-law behavior in different segments. It is applicable to fields such as complex networks, empirical distributions, and heavy-tailed phenomena. The package includes:
+This package provides tools for fitting the discrete piecewise power-law model, a flexible statistical framework for modeling data that exhibits power-law behavior in different segments. It is applicable to fields such as complex networks and heavy-tailed phenomena. The package includes:
 
 - Base Functions: Implementation of various functions related to the model, such as density, survival, hazard, random number generation, and more.
 - Maximum Likelihood Estimation: A method for estimating model parameters, including change points and scaling parameters.
@@ -20,7 +20,7 @@ This package provides tools for fitting the piecewise discrete power-law model, 
 - [x] Write examples for each function in the package
 - [x] Check the documentation
 - [x] Publish on GitHub  
-- [ ] Complete the "Example" section on GitHub
+- [x] Complete the "Example" section on GitHub
 - [ ] Distribute on CRAN
 
 ## Installation
@@ -61,7 +61,7 @@ In this step, we apply a bootstrap procedure using the estimated change point fr
 boot_1 <- boot_pwpldis(df, brks = fit_1$tau_1)
 ```
 
-First, we compute the bias-corrected maximum likelihood estimators using the following equation (see Jerez-Lillo N. *et al.*, 2025 for details):
+First, we compute the bias-corrected estimators using the following equation (see Jerez-Lillo N. *et al.*, 2025):
 
 <p align="center">
   <img src="bootstrap-bias-corrected.png" alt="">
@@ -71,7 +71,7 @@ First, we compute the bias-corrected maximum likelihood estimators using the fol
 2 * fit_1[, 3:4] - apply(boot_1[, 3:4], 2, mean)
 ```
 
-Second, we compute the 95% confidence intervals for the scaling parameters of the piecewise model using the empirical quantiles of the bootstrap distribution:
+Second, we compute the 95% confidence intervals for the scaling parameters of the piecewise model using the empirical quantiles of the bootstrap replicates:
 
 ``` r
 apply(boot_1[, 3:4], 2, function(x) quantile(x, c(0.025, 0.975)))
@@ -90,13 +90,13 @@ legend("bottomright", legend = c("Empirical", "Fitted"), col = c("black", "red")
 
 To cite `pwpldis` package in publications, please use the following format:
 
-Jerez-Lillo N (2025). *pwpldis: Piecewise Discrete Power-Law Model*. R package version 1.0.0, [https://github.com/njerezlillo/pwpldis](https://github.com/njerezlillo/pwpldis).
+Jerez-Lillo N (2025). *pwpldis: Discrete Piecewise Power-Law Model*. R package version 1.0.0, [https://github.com/njerezlillo/pwpldis](https://github.com/njerezlillo/pwpldis).
 
 For LaTeX users, the corresponding BibTeX entry is:
 
 ```bibtex
 @Manual{
-  title = {pwpldis: Piecewise Discrete Power-Law Model},
+  title = {pwpldis: Discrete Piecewise Power-Law Model},
   author = {Nixon Jerez-Lillo},
   year = {2025},
   note = {R package version 1.0.0},
